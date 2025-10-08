@@ -3,7 +3,7 @@
 A modern, responsive portfolio website showcasing my skills as an AI/ML Developer and Software Engineer.
 
 ## 🚀 Live Demo
-[View Portfolio](https://tyagideepak108.github.io/DeepakTyagi-Portfolio/)
+[View Portfolio](deepak-portfolio-25.vercel.app)
 
 ## 🛠️ Technologies Used
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
@@ -51,17 +51,6 @@ DeepakTyagi-Portfolio/
 - Desktop (1200px+)
 - Tablet (768px - 1199px)
 - Mobile (320px - 767px)
-
-## 🔧 Installation & Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Tyagideepak108/DeepakTyagi-Portfolio.git
-   ```
-2. Navigate to project directory:
-   ```bash
-   cd DeepakTyagi-Portfolio
-   ```
-3. Open `index.html` in your browser
 
 ## 📧 Contact
 - **Email**: tyagideepak1007@gmail.com
