@@ -9,6 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -18,6 +23,7 @@
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#achievements">Achievements</a></li>
@@ -50,6 +56,7 @@
         <div class="hero-image">
             <div class="profile-card">
                 <div class="profile-img">
+                   <img src="profile.jpeg" alt="Deepak Tyagi"> 
                     <i class="fas fa-user-circle"></i>
                 </div>
                 <h3>Deepak Tyagi</h3>
@@ -100,6 +107,52 @@
                         <div class="tech-item">
                             <i class="fab fa-react"></i>
                             <span>React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="experience-title-section">
+                            <h3>Full Stack Developer Intern</h3>
+                            <p class="company">Suvidha Foundation (Startup)</p>
+                            <p class="duration"><i class="far fa-calendar-alt"></i> Oct 2025 – Dec 2025</p>
+                        </div>
+                    </div>
+                    <div class="experience-details">
+                        <ul>
+                            <li>
+                                <strong>3D Cinematic Frontend:</strong> Developed an immersive landing page using Three.js and GSAP, featuring scroll-triggered 3D animations and parallax transitions for a cinematic user experience.
+                            </li>
+                            <li>
+                                <strong>Integration & Backend:</strong> Built a summarization engine using Facebook BART (Hugging Face) and Node.js/PostgreSQL to automate news extraction.
+                            </li>
+                            <li>
+                                <strong>Auth & Dashboard:</strong> Implemented secure OAuth 2.0 (Google/GitHub) authentication and a full CRUD-based dashboard for managing summary history.
+                            </li>
+                            <li>
+                                <strong>DevOps:</strong> Containerized the entire stack using Docker and handled cloud deployment to ensure production-ready scalability.
+                            </li>
+                        </ul>
+                        <div class="experience-tech">
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">GSAP</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Hugging Face</span>
+                            <span class="tech-tag">OAuth 2.0</span>
+                            <span class="tech-tag">Docker</span>
                         </div>
                     </div>
                 </div>
@@ -459,18 +512,21 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form>
+                    <form action="https://formsubmit.co/tyagideepak1007@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Portfolio Contact Message!">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://deepak-portfolio-25.vercel.app/#contact">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" name="subject" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
@@ -496,7 +552,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Deepak Tyagi. All rights reserved.</p>
+                <p>&copy; 2026 Deepak Tyagi. All rights reserved.</p>
             </div>
         </div>
     </footer>

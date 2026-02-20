@@ -34,6 +34,7 @@ DeepakTyagi-Portfolio/
 ## 🎯 Sections
 - **Hero**: Introduction with animated typing effect
 - **About**: Personal information and statistics
+- **Experience**: Professional work experience and internships
 - **Projects**: Featured projects with detailed descriptions
 - **Skills**: Technical skills with animated progress bars
 - **Achievements**: Notable achievements and participation

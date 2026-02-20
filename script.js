@@ -30,11 +30,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Navbar background change on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        if (isDark) {
+            navbar.style.background = 'rgba(31, 41, 55, 0.98)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        }
         navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        if (isDark) {
+            navbar.style.background = 'rgba(31, 41, 55, 0.95)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.8)';
+        }
         navbar.style.boxShadow = 'none';
     }
 });
@@ -68,7 +78,7 @@ if (skillsSection) {
 
 // Animate elements on scroll
 const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.stat, .tech-item, .skill-category, .contact-item');
+    const elements = document.querySelectorAll('.stat, .tech-item, .skill-category, .contact-item, .experience-card');
     
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
@@ -82,7 +92,7 @@ const animateOnScroll = () => {
 };
 
 // Set initial styles for animated elements
-document.querySelectorAll('.stat, .tech-item, .skill-category, .contact-item').forEach(element => {
+document.querySelectorAll('.stat, .tech-item, .skill-category, .contact-item, .experience-card').forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(30px)';
     element.style.transition = 'all 0.6s ease';
@@ -90,36 +100,16 @@ document.querySelectorAll('.stat, .tech-item, .skill-category, .contact-item').f
 
 window.addEventListener('scroll', animateOnScroll);
 
-// Contact form handling
+// Contact form handling - Now using FormSubmit.co
 const contactForm = document.querySelector('.contact-form form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const name = contactForm.querySelector('input[type="text"]').value;
-        const email = contactForm.querySelector('input[type="email"]').value;
-        const subject = contactForm.querySelectorAll('input[type="text"]')[1].value;
-        const message = contactForm.querySelector('textarea').value;
-        
-        // Simple validation
-        if (!name || !email || !subject || !message) {
-            alert('Please fill in all fields');
-            return;
-        }
-        
-        // Create mailto link
-        const mailtoLink = `mailto:deepaktyagi108@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-        
-        // Open email client
-        window.location.href = mailtoLink;
-        
-        // Show success message
-        alert('Thank you for your message! Your email client should open now.');
-        
-        // Reset form
-        contactForm.reset();
+        // Form will submit naturally to FormSubmit.co
+        // Show loading state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
     });
 }
 
@@ -224,7 +214,7 @@ progressBar.style.cssText = `
     left: 0;
     width: 0%;
     height: 3px;
-    background: linear-gradient(90deg, #4CAF50, #45a049);
+    background: linear-gradient(90deg, #667eea, #764ba2);
     z-index: 1002;
     transition: width 0.1s ease;
 `;
@@ -243,7 +233,7 @@ backToTop.style.cssText = `
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background: #4CAF50;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     border: none;
     border-radius: 50%;
@@ -255,6 +245,7 @@ backToTop.style.cssText = `
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 1000;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 `;
 
 document.body.appendChild(backToTop);
@@ -273,6 +264,14 @@ backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+backToTop.addEventListener('mouseenter', () => {
+    backToTop.style.transform = 'scale(1.1)';
+});
+
+backToTop.addEventListener('mouseleave', () => {
+    backToTop.style.transform = 'scale(1)';
+});
+
 // Cursor Trail Effect
 const cursor = document.createElement('div');
 cursor.className = 'cursor-trail';
@@ -280,7 +279,7 @@ cursor.style.cssText = `
     position: fixed;
     width: 20px;
     height: 20px;
-    background: rgba(76, 175, 80, 0.5);
+    background: rgba(102, 126, 234, 0.5);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -315,39 +314,36 @@ document.querySelectorAll('h1, h2, h3, p').forEach(element => {
 window.addEventListener('scroll', revealText);
 revealText(); // Initial call
 
-// Copy Email Feature
-const emailElements = document.querySelectorAll('[href^="mailto:"]');
-emailElements.forEach(element => {
-    element.addEventListener('click', (e) => {
-        e.preventDefault();
-        const email = element.href.replace('mailto:', '');
-        navigator.clipboard.writeText(email).then(() => {
-            const toast = document.createElement('div');
-            toast.textContent = 'Email copied to clipboard!';
-            toast.style.cssText = `
-                position: fixed;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                background: #4CAF50;
-                color: white;
-                padding: 10px 20px;
-                border-radius: 5px;
-                z-index: 1003;
-                animation: slideDown 0.3s ease;
-            `;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 2000);
-        });
-    });
-});
 
-// Add slideDown animation
-const toastStyle = document.createElement('style');
-toastStyle.textContent = `
-    @keyframes slideDown {
-        from { transform: translateX(-50%) translateY(-100%); }
-        to { transform: translateX(-50%) translateY(0); }
+
+// Dark Mode Toggle
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+
+// Check for saved theme
+const currentTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', currentTheme);
+themeToggle.innerHTML = currentTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+
+themeToggle.addEventListener('click', () => {
+    const theme = html.getAttribute('data-theme');
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeToggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    
+    // Update navbar background immediately
+    const navbar = document.querySelector('.navbar');
+    if (newTheme === 'dark') {
+        navbar.style.background = 'rgba(31, 41, 55, 0.95)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.8)';
     }
-`;
-document.head.appendChild(toastStyle);
+    
+    // Add rotation animation
+    themeToggle.style.transform = 'rotate(360deg)';
+    setTimeout(() => {
+        themeToggle.style.transform = 'rotate(0deg)';
+    }, 300);
+});
