@@ -646,6 +646,26 @@ section {
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    position: relative;
+}
+
+.project-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .project-preview i {
@@ -714,8 +734,9 @@ section {
 
 .project-stats {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .project-stats .stat {
@@ -1223,7 +1244,7 @@ section {
 
 .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -1352,5 +1373,11 @@ section {
     
     .achievement-icon i {
         font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .achievements-grid {
+        grid-template-columns: 1fr;
     }
 }

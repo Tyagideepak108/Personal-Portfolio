@@ -54,10 +54,12 @@ DeepakTyagi-Portfolio/
   - Docker Containerization
 
 ## 🚀 Featured Projects
-1. **Spotify Clone** - Music streaming web application
-2. **LeafDiseaseAI** - AI-powered crop disease detection system
+1. **KrishiScan AI** - Production-level crop disease detection platform with 95%+ accuracy
+2. **Spotify Clone** - Music streaming web application
+3. **LeafDiseaseAI** - AI-powered crop disease detection system
 
 ## 🏆 Achievements & Participation
+- **National Finalist** - MY Bharat Budget Quest 2026 (Top Finals from 12 Lakh+ participants)
 - Vision Pitch Presentation at Vikshit Bharat Young Dialogue 2025
 - Cybersecurity Awareness Program by NIELIT & Skill India
 
